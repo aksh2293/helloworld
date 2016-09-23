@@ -1,0 +1,68 @@
+<apex:page >
+<!-- V1.0 2-13-14 MC -->
+<!-- V1.1 4-08-14 ST -->
+<apex:image id="theImage" value="https://rocktech.s3.amazonaws.com/salesforce/rt_logo-scr.png"/>
+<apex:pageBlock title="Hello {!$User.FirstName}!">Thank you for choosing to install 
+<b><h3>RockTech for Salesforce</h3></b> by <h3><a href="http://www.rocktech.com">RockTech</a></h3>.
+<p>Once the installation of the managed package has been completed the following post setup steps must be taken.</p>
+<p><h2>Customize the home page layout.</h2></p>
+<ul><li>Setup -> Customize -> Home -> Home Page Layouts -> Edit<br/><br/>
+<img src="https://rocktech.s3.amazonaws.com/salesforce/home_page_layout.png" alt="Home Page Layout"></img></li>
+<br/><li>Ensure <b>RockTech Help</b> is a selected component to show and select "Next"<br/><br/>
+<img src="https://rocktech.s3.amazonaws.com/salesforce/edit_home_layout.png" alt="Edit Home Page Layout"></img></li>
+<br/><li>Assign the <b>RockTech</b> home page layout to the profiles that should see the <b>Help Me</b> button. When complete select "Save".<br/><br/>
+<img src="https://rocktech.s3.amazonaws.com/salesforce/assign_layout.png" alt="Assign Layout to Profile"></img></li>
+<br/><li>Order the home page layout. We suggest placing the <b>Help Me</b> button first. When complete select "Save &amp; Assign".<br/><br/>
+<img src="https://rocktech.s3.amazonaws.com/salesforce/order_home_layout.png" alt="Order Layout"></img></li>
+<br/><li>Ensure that the home page sidebar will be shown on all pages.<br/>
+To do so please go to Setup -> Customize -> User Interface<br/>
+Under the Sidebar listing, ensure that the "Show Custom Sidebar Components on All Pages" is checked.</li>
+</ul>
+
+<h2>Network Access.</h2>
+<ul><li>During a users registration process, the RockTech servers communicate with Salesforce. To ensure no issues are encountered we suggest adding the following IP's as trusted IP's.</li><br/>
+<li>To do so please go to Setup -> Administration Setup -> Security Controls -> Network Acess -> New</li><br/>
+<li>Add the following RockTech IP's.<b>50.19.131.208</b> and <b>107.22.142.194</b><br/><br/>
+<img src="https://rocktech.s3.amazonaws.com/salesforce/network_access.png" alt="Order Layout"></img></li>
+</ul>
+<br></br>
+<br></br>
+<h2>Testing the changes.</h2>
+<ul><li>To test the changes made you can navigate to any salesforce page. The RockTech "Help Me" button should display in the top, left-hand corner of salesforce.</li><br/>
+<li>If selected, the user will be seamlessly logged into RockTech for Salesforce and delivered to a contectual tip based upon which page they are in within Salesforce.</li><br/>
+<li>Please note, this assumes that the user who is selecting the "Help Me" button has a RockTech for Salesforce license and has registered with RockTech.</li>
+</ul>
+
+<br></br>
+<br></br>
+<b>Custom Tip configuration</b>
+<br/><br/>
+In some cases you may want to add your own buttons and have them direct the users to a custom tip of your choosing.
+In this case follow these steps
+<ol>
+<li>Nagivate to Setup->App Setup->Customize->Object(ie Account or Contact)</li>
+<li>Choose Buttons,Links and Actions</li>
+<li>Select New Button or Link</li>
+<li>Enter a Label and Name for the Button. The Label will determine what is printed on the button.</li>
+<li>For Display Type choose <b>Detail Page Button</b></li>
+<li>Set the Behavior drop down to <b>Execute JavaScript</b></li>
+<li>Set Contect Source to <b>OnClick JavaScript</b></li>
+<li>Paste the following text into the large window</li>
+window.open("/apex/rocktech__RockTechCustomTip?cstip=xyz&amp;bdub=" + window.location.href, target="_parent");
+<li> Replace <b>xyz</b> with the name of your custom tip</li>
+<li>Choose Save to save the button<br/><br/>
+<img src="https://rocktech.s3.amazonaws.com/salesforce/rocktech_custom_button.png" alt="Creating A Custom Button"></img></li>
+</ol>
+Now that we have created the button we must add it to the page layout
+<ol>
+<li>Nagivate to Setup->App Setup->Customize->Object->Page Layouts</li>
+<li>Select Edit next to your Page Layout and Choose <b>Buttons</b> from the top left frame</li>
+<li>Drag and drop your button into the <i>Custom Buttons</i> Section in the frame below </li>
+<br/><br/>
+<img src="https://rocktech.s3.amazonaws.com/salesforce/edit_page_layout.png" alt="Edit Page Layout"></img>
+</ol>
+
+<br></br>
+
+</apex:pageBlock>
+</apex:page>

@@ -1,0 +1,5 @@
+<apex:page controller="rocktech.RockTechRedirectController"  action="{!customRedirect}" showHeader="false" sidebar="false" standardStylesheets="false" >
+
+
+
+</apex:page>

@@ -1,0 +1,4 @@
+<apex:page controller="rocktech.RockTechRedirectController"
+    action="{!actionRedirect}">
+  
+</apex:page>

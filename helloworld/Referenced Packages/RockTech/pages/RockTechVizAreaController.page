@@ -1,0 +1,27 @@
+<apex:page controller="rocktech.RockTechRedirectController"  showHeader="false" sidebar="false" standardStylesheets="true" >
+<style type="text/css">
+.RockTech_btn { -moz-border-bottom-colors: none;
+-moz-border-left-colors: none;
+-moz-border-right-colors: none;
+-moz-border-top-colors: none;
+background: url("/img/alohaSkin/btn_sprite.png") repeat-x scroll right top #e8e8e9;
+border-color: #b5b5b5 #b5b5b5 #7f7f7f;
+border-image: none;
+border-radius: 3px;
+border-style: solid;
+border-width: 1px;
+color: #333;
+font-size: 0.9em;
+font-weight: bold;
+padding: 3px;
+text-decoration: none;
+}
+</style>
+
+<apex:form >
+<div style="padding:7px 58px; background: #CFEEF8;">
+<apex:commandLink action="{!actionRedirect}" target="_blank" styleClass="RockTech_btn" type="button" title="Help Me">Help Me</apex:commandLink>
+</div><br/>
+</apex:form>
+
+</apex:page>
